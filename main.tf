@@ -10,33 +10,16 @@ module "author" {
   name = "author"
 }
 
-module "lambda_get_all_authors" {
+module "lambda" {
   source = "./modules/lambda/eu-central-1"
   context = module.label.context
   name = "authors"
   name_courses = "courses"
 
-
-// створення чотирьох лямбда-функцій:
-
   name_get_course = "get-course"
   name_save_course = "save-course"
   name_update_course = "update-course"
   name_delete_course = "delete-course"
-
-  # table_author_name = module.author.table_name
-  # table_author_arn = module.author.table_arn
-
-  # table_author_name = module.author.table_name
-  # table_author_arn = module.author.table_arn
-
-  # table_author_name = module.author.table_name
-  # table_author_arn = module.author.table_arn
-
-
-  # table_author_name = module.author.table_name
-  # table_author_arn = module.author.table_arn
-
 
   table_author_name = module.author.table_name
   table_author_arn = module.author.table_arn

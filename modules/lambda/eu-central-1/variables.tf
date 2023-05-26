@@ -22,10 +22,6 @@ variable "lambda_courses_role_arn" {
     type = string  
 }
 
-
-
-// 
-
 variable "name_get_course" {
     type = string  
 }

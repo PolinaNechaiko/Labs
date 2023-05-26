@@ -75,9 +75,6 @@ module "lambda_courses" {
 
 }
 
-
-// label my lambda
-
 module "label_get_course" {
   source   = "cloudposse/label/null"
   version  = "0.25.0"
@@ -108,11 +105,6 @@ module "label_delete_course" {
   name     = var.name_delete_course
 }
 
-
-
-
-// мої лямбда-функції
-
 module "lambda_get_course" {
     source      = "terraform-aws-modules/lambda/aws"
     version     = "4.13.0"
@@ -122,11 +114,11 @@ module "lambda_get_course" {
     runtime = "nodejs12.x"
     source_path = "${path.module}/lambda_src/get_course/index.js"
     environment_variables = {
-      TABLE_NAME = var.table_courses_name  # ?
+      TABLE_NAME = var.table_courses_name 
     }
 
     create_role = false
-    lambda_role = var.lambda_courses_role_arn # ?
+    lambda_role = var.lambda_courses_role_arn 
     tags        = module.label_get_course.tags
 
 }
@@ -134,18 +126,18 @@ module "lambda_get_course" {
 module "lambda_save_course" {
     source      = "terraform-aws-modules/lambda/aws"
     version     = "4.13.0"
-    function_name        = module.label_save_course.id    # ?
+    function_name        = module.label_save_course.id   
     description = "Save course"
     handler     = "index.handler"
     runtime = "nodejs12.x"
     source_path = "${path.module}/lambda_src/save_course/index.js"
     environment_variables = {
-      TABLE_NAME = var.table_courses_name  # ?
+      TABLE_NAME = var.table_courses_name 
     }
 
     create_role = false
-    lambda_role = var.lambda_courses_role_arn # ?
-    tags        = module.label_save_course.tags # ?
+    lambda_role = var.lambda_courses_role_arn 
+    tags        = module.label_save_course.tags 
 
 }
 
@@ -158,11 +150,11 @@ module "lambda_update_course" {
     runtime = "nodejs12.x"
     source_path = "${path.module}/lambda_src/update_course/index.js"
     environment_variables = {
-      TABLE_NAME = var.table_courses_name  # ?
+      TABLE_NAME = var.table_courses_name 
     }
 
     create_role = false
-    lambda_role = var.lambda_courses_role_arn # ?
+    lambda_role = var.lambda_courses_role_arn
     tags        = module.label_update_course.tags
 
 }
@@ -176,11 +168,11 @@ module "lambda_delete_course" {
     runtime = "nodejs12.x"
     source_path = "${path.module}/lambda_src/delete_course/index.js"
     environment_variables = {
-      TABLE_NAME = var.table_courses_name  # ?
+      TABLE_NAME = var.table_courses_name 
     }
 
     create_role = false
-    lambda_role = var.lambda_courses_role_arn # ?
+    lambda_role = var.lambda_courses_role_arn
     tags        = module.label_delete_course.tags 
 
 }

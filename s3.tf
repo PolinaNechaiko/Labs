@@ -4,7 +4,7 @@ locals {
 
 # Create a VPC
 resource "aws_s3_bucket" "this" {
-  bucket = "mytest-bucket-lpnu"
+  bucket = "my-testbucket-lpnu"
 
   tags = {
     Name         = "My bucket"
@@ -13,7 +13,7 @@ resource "aws_s3_bucket" "this" {
 }
 
 resource "aws_s3_bucket" "this2" {
-  bucket = "mytest-bucket-lpnu2"
+  bucket = "my-testbucket-lpnu2"
 
   tags = {
     Name         = "My bucket"

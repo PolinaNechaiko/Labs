@@ -19,3 +19,4 @@ resource "aws_iam_policy" "table_courses" {
   path   = "/"
   policy = data.aws_iam_policy_document.table_courses.json
 }
+
