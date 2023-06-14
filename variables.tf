@@ -9,3 +9,9 @@ variable "instance_role_enabled" {
   default = true
   
 }
+ //////////
+ 
+variable "slack_webhook_url" {
+  type    = string
+  default = "your_slack_webhook_url"
+}
